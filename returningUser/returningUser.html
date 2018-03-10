@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content=""><meta name="author" content="IronWifi">
+	<title>Wifi Access</title>
+	<link href="/assets/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="/assets/css/scrolling-nav.css" rel="stylesheet" /><script>
+		var count=5;
+		var counter;
+		
+		function timer()
+		{
+			  count=count-1;
+			  if (count <= 0)
+			  {
+				clearInterval(counter);
+				
+				if ("${target_url}" != ""){
+					window.location.href = "${target_url}";
+				}
+				return;
+			  }
+
+			 document.getElementById("timer").innerHTML=count;
+		}
+	
+		function init(){
+			counter=setInterval(timer, 1000); 
+		}
+	</script>
+</head>
+<body data-spy="scroll" data-target=".navbar-fixed-top" id="page-top" onload="init()"><!-- Intro Section -->
+<section class="intro-section" id="intro" style="padding-top:20px">
+<div class="container">
+<div class="row">
+<div class="col-lg-12">
+<div align="center"><img src="/assets/img/logo-ironwifi.png" style="width: 100px" /></div>
+
+<h1>Welcome back, ${firstName} ${lastName} - ${auth_user}.</h1>
+&nbsp;
+
+<p>You will get access to the Internet in <span id="timer">5</span> seconds.</p>
+
+<div id="deauthorize_div">If this is not you please <a href="#!" onclick="deleteCredentials(); return false;">click here</a> and we remove the association of this browser against that username and MAC address.</div>
+</div>
+</div>
+</div>
+</section>
+<script src="/assets/js/jquery.js"></script><script src="/assets/js/bootstrap.min.js"></script><script src="/assets/js/jquery.easing.min.js"></script><script src="/assets/js/cp-scripts.js"></script></body>
+</html>
